@@ -73,11 +73,33 @@ const myMathObj = {
 };
 
 console.log(myMathObj.round(554));
+console.assert(myMathObj.round(554) === 554);
+
 console.log(myMathObj.round(554.4999));
+console.assert(myMathObj.round(554.4999) === 554);
+
 console.log(myMathObj.round(554.6));
+console.assert(myMathObj.round(554.6) === 555);
+console.log('');
+
+
 console.log(myMathObj.ceil(99));
+console.assert(myMathObj.ceil(99) === 99);
+
 console.log(myMathObj.ceil(99.00001));
+console.assert(myMathObj.ceil(99.00001) === 100);
+
 console.log(myMathObj.ceil(99.9999));
+console.assert(myMathObj.ceil(99.9999) === 100);
+console.log('');
+
+
 console.log(myMathObj.floor(1111));
+console.assert(myMathObj.floor(1111) === 1111);
+
 console.log(myMathObj.floor(1111.1));
+console.assert(myMathObj.floor(1111.1) === 1111);
+
 console.log(myMathObj.floor(1111.999));
+console.assert(myMathObj.floor(1111.9999) === 1111);
+
