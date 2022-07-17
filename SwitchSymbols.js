@@ -19,6 +19,15 @@ const switchSymbols = str => {
 };
 
 console.log(switchSymbols('water'));
-console.log(switchSymbols('cherry'));
+console.assert(switchSymbols('water') === 'awetr');
+
+console.log(switchSymbols('awetr'));
+console.assert(switchSymbols('awetr') === 'water');
+
+
 console.log(switchSymbols(''));
+console.assert(switchSymbols('') === 'not a suitable argument');
+
 console.log(switchSymbols());
+console.assert(switchSymbols('') === 'not a suitable argument');
+
