@@ -1,28 +1,18 @@
-//Prints type of numbers below 101 e.g. "prime" or "composite"
-const printTypeOfEachNumBelow101 = () => {
-    let numberToCheck = 0;
-
-    while (numberToCheck < 101) {
-        console.log(`${numberToCheck} is ${getTypeOfNumber(numberToCheck)} number`);
-
-        numberToCheck += 1;
+//Print type of each number below 101 e.g. "prime" or "composite"
+const printTypeOfNums = () => {
+    for (let currentNum = 0; currentNum < 101; currentNum++) {
+        console.log(`${currentNum} is ${getTypeOfNum(currentNum)} number`);
     };
-
     return 'end';
 };
 
-const getTypeOfNumber = num => {
+const getTypeOfNum = num => {
     if (num <= 1) return 'not a suitable';
 
-    let divisor = 2
-
-    while (divisor < num / 2) {
-        const isComposite = num % divisor === 0;
-        if (isComposite) return 'composite';
-
-        divisor += 1;
+    for (let divisor = 2; divisor <= (num / 2); divisor++) {
+        if (num % divisor === 0) return 'a composite';
     };
-    return 'prime';
+    return 'a prime';
 };
 
-printTypeOfEachNumBelow101();
+printTypeOfNums();
