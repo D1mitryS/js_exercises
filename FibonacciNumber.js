@@ -9,4 +9,8 @@ const fibNum = n => {
 
 };
 
-console.log(fibNum(5));
+
+console.assert(fibNum(5) === 5);
+
+console.log('\n');
+console.assert(fibNum(6) === 8);
