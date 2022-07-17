@@ -10,10 +10,11 @@ const countCharacters = (text, character) => {
 
 const text = 'Imagination';
 console.log(countCharacters(text , 'i'));
+console.assert(countCharacters(text , 'i') === 3);
 
 
 //Count characters inside a string case-sensitively
-const countCharactersCaseSensitively = (text, character) => {
+const countCharactersV1 = (text, character) => {
     let counter = 0;
 
     for (let i = 0; i < text.length; i++) {
@@ -22,4 +23,5 @@ const countCharactersCaseSensitively = (text, character) => {
     return counter;
 };
 
-console.log(countCharactersCaseSensitively(text, 'i'));
+console.log(countCharactersV1(text, 'i'));
+console.assert(countCharactersV1(text , 'i') === 2);
