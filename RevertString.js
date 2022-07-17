@@ -11,6 +11,7 @@ const myStrObj = {
 };
 
 console.log(myStrObj.revert('Cyan'));
+console.assert(myStrObj.revert('Cyan') === 'nayC');
 
 
 /* Revert string using closure */
@@ -29,9 +30,10 @@ function revertStrWithClosure(str) {
 const revert = revertStrWithClosure('Black');
 
 console.log(revert());
+console.assert(revert() === 'kcalB')
 
 
-/* Revert string using cycle */
+/* Revert string using a loop */
 const revertStr = (str) => {
     let result = '';
 
@@ -42,6 +44,7 @@ const revertStr = (str) => {
 };
 
 console.log(revertStr('Purple'));
+console.assert(revertStr('Purple') === 'elpruP');
 
 
 const revertStr1 = (str) => {
@@ -54,3 +57,11 @@ const revertStr1 = (str) => {
 };
 
 console.log(revertStr1('Yellow'));
+console.assert(revertStr1('Yellow') === 'wolleY');
+
+
+/*Revert string using array */
+const revertStrThruArr = str => str.split('').reverse().join('');
+
+console.log(revertStrThruArr('White'));
+console.assert(revertStrThruArr('White') === 'etihW')
