@@ -4,7 +4,7 @@ const transcriptArrOfNums = arr => {
         if (num < 20) return transcriptNumsBelowTwenty(num);
         else if (num >= 20 && num < 100) return splitAndTranscript(num);
         else if (num === 100) return 'Hundred';
-        else return 'Not suitable number';
+        else return 'Wrong num';
     });
     return transcriptedArr.join('; ');
 };
@@ -69,7 +69,7 @@ const transcriptNumsBelowTwenty = num => {
         case 19:
             return 'Nineteen';
         default:
-            return 'Not suitable number';
+            return 'Wrong num';
     };
 };
 
@@ -92,12 +92,22 @@ const transcriptNumsAboveTwenty = num => {
         case 9:
             return 'Ninety';
         default:
-            return 'Not suitable number';
+            return 'Wrong num';
     };
 };
 
-const arrayOfNums = [-10, -1, 05, 0, 5, 19, 20, 21, 60, 68, 90, 99, 100, 101, 1000]
-console.log(transcriptArrOfNums(arrayOfNums));
+const firstArrOfNums = [-10, -1, 05, 5];
+const seconArrOfNums = [-21, 60, 68, 90];
+const thirdArrOfNums = [99, 100, 101, 1000];
+
+console.log(transcriptArrOfNums(firstArrOfNums));
+console.assert(transcriptArrOfNums(firstArrOfNums) === 'Wrong num; Wrong num; Five; Five');
+
+console.log(transcriptArrOfNums(seconArrOfNums));
+console.assert(transcriptArrOfNums(seconArrOfNums) === 'Wrong num; Sixty; Sixty-eight; Ninety');
+
+console.log(transcriptArrOfNums(thirdArrOfNums));
+console.assert(transcriptArrOfNums(thirdArrOfNums) === 'Ninety-nine; Hundred; Wrong num; Wrong num');
 
 
 //Transcript positive number below 101 into word using the samefunctions as arr.map()
@@ -105,17 +115,34 @@ const transcriptNumIntoWord = num => {
     if (num < 20) return transcriptNumsBelowTwenty(num);
     else if (num >= 20 && num < 100) return splitAndTranscript(num);
     else if (num === 100) return 'Hundred';
-    else return 'Not suitable number';
+    else return 'Wrong num';
 };
 
 console.log('');
 console.log(transcriptNumIntoWord(-5));
-console.log(transcriptNumIntoWord(0));
-console.log(transcriptNumIntoWord(07));
-console.log(transcriptNumIntoWord(7));
-console.log(transcriptNumIntoWord(20));
-console.log(transcriptNumIntoWord(21));
-console.log(transcriptNumIntoWord(99));
-console.log(transcriptNumIntoWord(100));
-console.log(transcriptNumIntoWord(150));
+console.assert(transcriptNumIntoWord(-5) === 'Wrong num');
 
+console.log(transcriptNumIntoWord(0));
+console.assert(transcriptNumIntoWord(0) === 'Zero');
+
+console.log(transcriptNumIntoWord(07));
+console.assert(transcriptNumIntoWord(07) === 'Seven');
+
+console.log(transcriptNumIntoWord(7));
+console.assert(transcriptNumIntoWord(7) === 'Seven');
+
+console.log(transcriptNumIntoWord(20));
+console.assert(transcriptNumIntoWord(20) === 'Twenty');
+
+console.log(transcriptNumIntoWord(21));
+console.assert(transcriptNumIntoWord(21) === 'Twenty-one');
+
+
+console.log(transcriptNumIntoWord(99));
+console.assert(transcriptNumIntoWord(99) === 'Ninety-nine');
+
+console.log(transcriptNumIntoWord(100));
+console.assert(transcriptNumIntoWord(100) === 'Hundred');
+
+console.log(transcriptNumIntoWord(150));
+console.assert(transcriptNumIntoWord(150) === 'Wrong num');
