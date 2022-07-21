@@ -1,3 +1,36 @@
+const countingWordsBelowTwenty = {
+    0: 'Zero',
+    1: 'One',
+    2: 'Two',
+    3: 'Three',
+    4: 'Four',
+    5: 'Five',
+    6: 'Six',
+    7: 'Seven',
+    8: 'Eight',
+    9: 'Nine',
+    10: 'Ten',
+    11: 'Eleven',
+    12: 'Twelve',
+    13: 'Thirteen',
+    14: 'Fourteen',
+    15: 'Fifteen',
+    16: 'Sixteen',
+    17: 'Seventeen',
+    18: 'Eighteen',
+    19: 'Nineteen'
+};
+const countingWordsAboveTwenty = {
+    2: 'Twenty',
+    3: 'Thirty',
+    4: 'Fourty',
+    5: 'Fifty',
+    6: 'Sixty',
+    7: 'Seventy',
+    8: 'Eighty',
+    9: 'Ninety',
+}
+
 //Transcript arry of positive nums below 101 into array of words
 const transcriptArrOfNums = arr => {
     const transcriptedArr = arr.map(num => {
@@ -26,75 +59,11 @@ const splitAndTranscript = num => {
     };
 };
 
-const transcriptNumsBelowTwenty = num => {
-    switch (num) {
-        case 0:
-            return 'Zero';
-        case 1:
-            return 'One';
-        case 2:
-            return 'Two';
-        case 3:
-            return 'Three';
-        case 4:
-            return 'Four';
-        case 5:
-            return 'Five';
-        case 6:
-            return 'Six';
-        case 7:
-            return 'Seven';
-        case 8:
-            return 'Eight';
-        case 9:
-            return 'Nine';
-        case 10:
-            return 'Ten';
-        case 11:
-            return 'Eleven';
-        case 12:
-            return 'Twelve';
-        case 13:
-            return 'Thirteen';
-        case 14:
-            return 'Fourteen';
-        case 15:
-            return 'Fifteen';
-        case 16:
-            return 'Sixteen';
-        case 17:
-            return 'Seventeen';
-        case 18:
-            return 'Eightenn';
-        case 19:
-            return 'Nineteen';
-        default:
-            return 'Wrong num';
-    };
 };
 
-const transcriptNumsAboveTwenty = num => {
-    switch (num) {
-        case 2:
-            return 'Twenty';
-        case 3:
-            return 'Thirty';
-        case 4:
-            return 'Forty';
-        case 5:
-            return 'Fifty';
-        case 6:
-            return 'Sixty';
-        case 7:
-            return 'Seventy';
-        case 8:
-            return 'Eighty';
-        case 9:
-            return 'Ninety';
-        default:
-            return 'Wrong num';
-    };
-};
+const transcriptNumsBelowTwenty = num => countingWordsBelowTwenty[num];
+const transcriptNumsAboveTwenty = num => countingWordsAboveTwenty[num];
+
 
 const firstArrOfNums = [-10, -1, 05, 5];
 const seconArrOfNums = [-21, 60, 68, 90];
