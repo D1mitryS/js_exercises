@@ -33,12 +33,14 @@ const countingWordsAboveTwenty = {
 
 //Transcript arry of positive nums below 101 into array of words
 const transcriptArrOfNums = arr => {
-    const transcriptedArr = arr.map(num => {
-        if (num < 20) return transcriptNumsBelowTwenty(num);
-        else if (num >= 20 && num < 100) return splitAndTranscript(num);
-        else if (num === 100) return 'Hundred';
-        else return 'Wrong num';
-    });
+    const transcriptedArr = arr.map(
+        num => {
+            if (num >= 0 && num < 20) return transcriptNumsBelowTwenty(num);
+            else if (num >= 20 && num < 100) return splitAndTranscript(num);
+            else if (num === 100) return 'Hundred';
+
+            return 'Wrong num';
+        });
     return transcriptedArr.join('; ');
 };
 
@@ -48,40 +50,37 @@ transcriptNumsBelowTwenty() or/and transcriptNumsAboveTwenty()
 */
 const splitAndTranscript = num => {
     const firstStr = String(num)[0];
+    if (num % 10 === 0) return transcriptNumsAboveTwenty(Number(firstStr));
+
     const secondStr = String(num)[1];
 
-    if (num % 10 === 0) {
-        return transcriptNumsAboveTwenty(Number(firstStr));
-    } else {
-        const firstNum = transcriptNumsAboveTwenty(Number(firstStr));
-        const secondNum = transcriptNumsBelowTwenty(Number(secondStr));
-        return `${firstNum}-${secondNum.toLowerCase()}`;
-    };
-};
+    const firstNum = transcriptNumsAboveTwenty(Number(firstStr));
+    const secondNum = transcriptNumsBelowTwenty(Number(secondStr));
 
+    return `${firstNum}-${secondNum.toLowerCase()}`;
 };
 
 const transcriptNumsBelowTwenty = num => countingWordsBelowTwenty[num];
 const transcriptNumsAboveTwenty = num => countingWordsAboveTwenty[num];
 
 
-const firstArrOfNums = [-10, -1, 05, 5];
-const seconArrOfNums = [-21, 60, 68, 90];
-const thirdArrOfNums = [99, 100, 101, 1000];
+const firstSampleArr = [-10, -1, 05, 5];
+const secondSampleArr = [-21, 60, 68, 90];
+const thirdSampleArr = [99, 100, 101, 1000];
 
-console.log(transcriptArrOfNums(firstArrOfNums));
-console.assert(transcriptArrOfNums(firstArrOfNums) === 'Wrong num; Wrong num; Five; Five');
+console.log(transcriptArrOfNums(firstSampleArr));
+console.assert(transcriptArrOfNums(firstSampleArr) === 'Wrong num; Wrong num; Five; Five');
 
-console.log(transcriptArrOfNums(seconArrOfNums));
-console.assert(transcriptArrOfNums(seconArrOfNums) === 'Wrong num; Sixty; Sixty-eight; Ninety');
+console.log(transcriptArrOfNums(secondSampleArr));
+console.assert(transcriptArrOfNums(secondSampleArr) === 'Wrong num; Sixty; Sixty-eight; Ninety');
 
-console.log(transcriptArrOfNums(thirdArrOfNums));
-console.assert(transcriptArrOfNums(thirdArrOfNums) === 'Ninety-nine; Hundred; Wrong num; Wrong num');
+console.log(transcriptArrOfNums(thirdSampleArr));
+console.assert(transcriptArrOfNums(thirdSampleArr) === 'Ninety-nine; Hundred; Wrong num; Wrong num');
 
 
 //Transcript positive number below 101 into word using the samefunctions as arr.map()
 const transcriptNumIntoWord = num => {
-    if (num < 20) return transcriptNumsBelowTwenty(num);
+    if (num >= 0 && num < 20) return transcriptNumsBelowTwenty(num);
     else if (num >= 20 && num < 100) return splitAndTranscript(num);
     else if (num === 100) return 'Hundred';
     else return 'Wrong num';
