@@ -1,1 +1,0 @@
-export default (base, pow = 2) => base ** pow;
